@@ -1,39 +1,49 @@
 import os
 import dotenv
 
+# Load environment variables
 dotenv.load_dotenv('.env')
 dotenv.load_dotenv('.env.development')
 
+# API Keys
 GOOGLE_AI_KEY = os.getenv('GOOGLE_AI_KEY')
 DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 
+# Channels the bot should track (IDs as integers)
 tracked_channels = [
-	# channel_id_1,
-	# thread_id_2,
+    # 123456789012345678,  # Example channel ID
 ]
 
+# Text generation config (short, casual, witty responses)
 text_generation_config = {
-	"temperature": 0.9,
-	"top_p": 1,
-	"top_k": 1,
-	# "max_output_tokens": 512,
+    "temperature": 1.1,     # More creativity & personality
+    "top_p": 0.9,           # Balanced randomness
+    "top_k": 40,            # Better variety
+    "max_output_tokens": 60 # Short replies
 }
+
+# Image generation config (can be tweaked separately)
 image_generation_config = {
-	"temperature": 0.4,
-	"top_p": 1,
-	"top_k": 32,
-	# "max_output_tokens": 512,
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "top_k": 40
 }
+
+# Safety settings - disable blocking for more open responses
 safety_settings = [
-	# {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
-	# {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
-	# {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
-	# {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"}
+    {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"}
 ]
 
+# Personality prompt - short, casual, witty
 bot_template = [
-	# {'role':'user','parts': ["Hi!"]},
-	# {'role':'model','parts': ["Hello! I am a Discord bot!"]},
-	# {'role':'user','parts': ["Please give short and concise answers!"]},
-	# {'role':'model','parts': ["I will try my best!"]},
+    {'role': 'user', 'parts': [
+        "From now on, reply only in short, casual English. Be friendly, a bit witty, "
+        "and avoid long explanations unless asked. Occasionally use emojis."
+    ]},
+    {'role': 'model', 'parts': [
+        "Gotcha! Keeping it short, chill, and fun. 😎"
+    ]}
 ]

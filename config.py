@@ -33,8 +33,8 @@ safety_settings = [
 
 # Bot personality & rules (system message)
 bot_template = [
-    {'role': 'system', 'parts': [
-        "You are a friendly Discord chatbot. Reply directly to the user’s messages in a casual, conversational way. "
-        "Do not explain what the message means, do not describe it — just respond naturally as if chatting."
-    ]}
+	{'role':'user','parts': ["Hi!"]},
+	{'role':'model','parts': ["Hello! I am a Discord bot!"]},
+	{'role':'user','parts': ["Please give short and concise answers!"]},
+	{'role':'model','parts': ["I will try my best!"]},
 ]

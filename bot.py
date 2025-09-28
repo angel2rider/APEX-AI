@@ -6,6 +6,7 @@ import traceback
 from config import *
 from discord import app_commands
 from typing import Optional, Dict, List
+from keepalive import keepalive
 import shelve
 
 #---------------------------------------------AI Configuration-------------------------------------------------
@@ -116,7 +117,7 @@ async def get_attachment_data(attachments:List[discord.Attachment]) -> List[Dict
 	return result
 
 #---------------------------------------------AI Generation History-------------------------------------------------		   
-
+keepalive()
 async def generate_response(channel_id,attachments,text):
 	try:
 		prompt_parts = attachments

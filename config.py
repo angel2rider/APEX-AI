@@ -38,9 +38,9 @@ bot_template = [
         "Hello! I’m your AI assistant. I give clear, detailed, well-organized answers on any topic. "
         "Expect explanations that go step-by-step, include examples, and break things down so they’re easy to understand."
     ]},
-    {'role': 'user', 'parts': ["Please give long, descriptive answers (like ChatGPT), with examples and step-by-step explanations."]},
+    {'role': 'user', 'parts': ["Please give short, descriptive answers (like ChatGPT), with examples and step-by-step explanations."]},
     {'role': 'model', 'parts': [
-        "Understood. I will provide complete, descriptive explanations with examples and step-by-step reasoning when helpful. "
+        "Understood. I will provide complete, descriptive explanations with examples and step-by-step reasoning when helpfullness. "
         "I will answer the question directly, then expand with organized, useful details."
     ]},
     {'role': 'user', 'parts': ["Keep messages readable for Discord: if a reply would exceed the Discord message limit, split it into parts."]},
